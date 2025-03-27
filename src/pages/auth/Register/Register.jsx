@@ -1,8 +1,8 @@
 import styles from "../../../components/Form/Form.module.css";
-import { useState, useContext } from "react";
+import sRegister from "./Register.module.css";
+import { useState } from "react";
 import Input from "../../../components/Form/Input";
-import Button from "../../../components/Button/Button";
-// import { authContext } from "../../../context/Context";
+import register from "../../../hooks/useAuth";
 
 const Register = () => {
     const [user, setUser] = useState({});
@@ -11,6 +11,8 @@ const Register = () => {
         e.preventDefault();
 
         console.log(user);
+        register(user);
+
     }
 
     function handleChange(e) {
@@ -18,7 +20,6 @@ const Register = () => {
         setUser({
             ...user,
             [e.target.name]: e.target.value,
-            [e.target.email]: e.target.value
         })
     }
     return (
@@ -30,8 +31,9 @@ const Register = () => {
                 <Input type="password" name="password" placeholder="Digite sua senha..." handleOnChange={handleChange} />
                 <Input type="password" name="confirmPassword" placeholder="Digite sua senha..." handleOnChange={handleChange} />
                 <Input type="text" name="phone" placeholder="Digite seu telefone" handleOnChange={handleChange} />
-
-                <Button type="submit">Registrar</Button>
+                <div className={sRegister.container_btn}>
+                    <Input type="submit" value="Cadastrar" handleOnChange={handleChange} />
+                </div>
             </form>
         </section>
     )

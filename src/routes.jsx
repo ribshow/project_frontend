@@ -5,11 +5,13 @@ import Register from "./pages/auth/Register/Register";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import Container from "./components/Container/Container";
+import Message from "./components/Messase/Message";
 
 function AppRoutes() {
     return (
         <BrowserRouter>
             <Header />
+            <Message />
             <Container>
                 <Routes>
                     <Route path="/" element={<Home />} />
