@@ -14,7 +14,7 @@ const Header = () => {
                 </li>
 
                 {authenticated && (
-                    <li onClick={logout}>
+                    <li className={styles.btn_logout} onClick={logout}>
                         Sair
                     </li>
                 )}

@@ -1,5 +1,6 @@
 import Input from "../../../components/Form/Input";
 import styles from "../../../components/Form/Form.module.css";
+import sInput from "../../../components/Form/Input.module.css";
 import sRegister from "../../auth/Register/Register.module.css"
 import { useState, useContext } from "react";
 import { Context } from "../../../context/Context";
@@ -25,7 +26,9 @@ const Login = () => {
     return (
         <section className={styles.form_container}>
             <h1>Login</h1>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={sInput.form_control}>
+
+                <label htmlFor="email">Email:</label>
                 <Input
                     type="email"
                     name="email"
@@ -33,6 +36,8 @@ const Login = () => {
                     placeholder="Digite seu e-mail..."
                     handleOnChange={handleChange}
                 />
+
+                <label htmlFor="password">Senha:</label>
                 <Input
                     type="password"
                     name="password"

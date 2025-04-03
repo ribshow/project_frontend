@@ -7,6 +7,7 @@
     color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
+
 .navbar ul {
     list-style: none;
     display: flex;
@@ -14,12 +15,26 @@
     margin: 0;
     padding: 0;
 }
+
 .navbar a {
     text-decoration: none;
     color: white;
     font-weight: bold;
     transition: 0.3s;
 }
+
 .navbar a:hover {
     color: #F9C74F;
+}
+
+.btn_logout {
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.btn_logout:hover {
+    color: #F9C74F;
+    cursor: pointer;
 }

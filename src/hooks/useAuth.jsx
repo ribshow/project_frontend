@@ -34,7 +34,10 @@ export default function useAuth() {
             messageText = error.response.data.message;
             messageType = "error";
         }
-        setFlashMessage(messageText, messageType);
+        finally {
+            setFlashMessage(messageText, messageType);
+        }
+
     }
 
     // REGISTRO DO USUÁRIO
@@ -43,7 +46,7 @@ export default function useAuth() {
         let messageType = "success";
         try {
             const data = await api.post("/users/register", user).then((response) => {
-                console.log(response);
+                navigate("/login");
                 return response.data;
 
             })
@@ -53,8 +56,10 @@ export default function useAuth() {
         } catch (error) {
             messageText = error.response.data.message;
             messageType = "error";
+        } finally {
+            setFlashMessage(messageText, messageType);
         }
-        setFlashMessage(messageText, messageType);
+
     }
 
     // LOGOUT DO USUÁRIO

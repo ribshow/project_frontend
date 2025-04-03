@@ -10,6 +10,7 @@ const Input = ({ type, name, placeholder, value, text, handleOnChange }) => {
                 placeholder={placeholder}
                 value={value}
                 onChange={handleOnChange}
+                required
             />
         </div>
     )
