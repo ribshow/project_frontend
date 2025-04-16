@@ -14,9 +14,12 @@ const Header = () => {
                 </li>
 
                 {authenticated && (
-                    <li className={styles.btn_logout} onClick={logout}>
-                        Sair
-                    </li>
+                    <>
+                        <Link to="/pets/create">Adicionar Pets</Link>
+                        <li className={styles.btn_logout} onClick={logout}>
+                            Sair
+                        </li>
+                    </>
                 )}
 
                 {!authenticated && (
