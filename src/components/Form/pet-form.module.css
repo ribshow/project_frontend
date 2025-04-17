@@ -1,0 +1,26 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.img_container {
+  width: 140px;
+  max-width: 100%;
+  height: 100%;
+}
+
+.btnSubmit {
+  border-radius: 8px;
+  background-color: #ff8c42;
+  color: #fff;
+  border: none;
+  min-width: 100px;
+  min-height: 2.5rem;
+  width: 100%;
+  cursor: pointer;
+  font-size: 1.1em;
+  font-weight: bold;
+}
