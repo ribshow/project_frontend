@@ -8,9 +8,9 @@ function Select({ text, name, options, handleOnChange, value }) {
                 onChange={handleOnChange}
                 value={value || ""}
             >
-                <options>Escolha uma opção...</options>
+                <option>Escolha uma opção...</option>
                 {
-                    options &&
+
                     options.map((option) => (
                         <option value={option} key={option}>{option}</option>
                     ))

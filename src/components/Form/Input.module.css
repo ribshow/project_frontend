@@ -11,7 +11,7 @@
 }
 
 .form_control input {
-    width: 100%;
+    width: 20vw;
     padding: 10px;
     border: 2px solid #8A2BE2;
     border-radius: 5px;
@@ -39,4 +39,16 @@
 
 .form_control button:hover {
     background-color: #e07b38;
+}
+
+@media (max-width: 700px) {
+    .form_control input {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1024px) {
+    .form_control input {
+        width: 100%;
+    }
 }

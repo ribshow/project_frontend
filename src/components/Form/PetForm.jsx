@@ -7,13 +7,13 @@ const PetForm = ({ handleSubmit, petData, btnText }) => {
     const [preview, setPreview] = useState([]);
     const situation = ["Perdido", "Procurando tutor"];
     const gender = ["Macho", "Fêmea"];
-    const port = ["Grande", "Médio", "Pequeno"];
+    const size = ["Grande", "Médio", "Pequeno"];
 
     // manipulando as imagens 
     function onFileChange(e) {
-        console.log(e.target.files);
         setPreview(Array.from(e.target.files));
         setPet({ ...pet, images: [...e.target.files] });
+        console.log(e.target.files);
     }
 
     // setando os valores do formulário
@@ -31,11 +31,12 @@ const PetForm = ({ handleSubmit, petData, btnText }) => {
     }
 
     function handlePort(e) {
-        setPet({ ...pet, port: e.target.options[e.target.selectedIndex].text });
+        setPet({ ...pet, size: e.target.options[e.target.selectedIndex].text });
     }
 
     function submit(e) {
         e.preventDefault();
+        console.log(pet);
         handleSubmit(pet);
     }
     return (
@@ -47,7 +48,7 @@ const PetForm = ({ handleSubmit, petData, btnText }) => {
                             ? preview.map((image, index) => (
                                 <img src={URL.createObjectURL(image)} alt={pet.name} key={`${pet.name}${index}`} />
                             ))
-                            : pet.images &&
+                            : pet.image &&
                             pet.images.map((image, index) => (
                                 <img src={`${process.env.REACT_APP_API}/public/images/pets/${image.name}`} alt={pet.name} key={index} />
                             ))
@@ -56,7 +57,7 @@ const PetForm = ({ handleSubmit, petData, btnText }) => {
                 <Input
                     text="Imagens do Pet:"
                     type="file"
-                    multiple={true} name="image"
+                    multiple={true} name="images"
                     handleOnChange={onFileChange} />
                 <Input
                     text="Nome:"
@@ -98,15 +99,17 @@ const PetForm = ({ handleSubmit, petData, btnText }) => {
                     name="gender"
                     text="Gênero"
                     options={gender}
-                    handleOnChange={handleGender}
                     value={pet.gender || ""}
+                    handleOnChange={handleGender}
+
                 />
                 <Select
                     name="size"
                     text="Tamanho"
-                    options={port}
-                    handleOnChange={handlePort}
+                    options={size}
                     value={pet.size || ""}
+                    handleOnChange={handlePort}
+
                 />
 
                 <Input
@@ -136,9 +139,10 @@ const PetForm = ({ handleSubmit, petData, btnText }) => {
                 <Select
                     name="situation"
                     text="Situação:"
-                    options={pet.size}
-                    handleOnChange={handleSituation}
+                    options={situation}
                     value={pet.situation || ""}
+                    handleOnChange={handleSituation}
+
                 />
                 <Input
                     text="Comentário"
