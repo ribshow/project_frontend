@@ -9,6 +9,7 @@ import Footer from "./components/Footer/Footer";
 import Container from "./components/Container/Container";
 import Message from "./components/Message/Message";
 import { UserProvider } from "./context/Context";
+import PrivateRoute from "./pages/middleware";
 
 function AppRoutes() {
   return (
@@ -21,8 +22,22 @@ function AppRoutes() {
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/pets/create" element={<AddPet />} />
+            <Route
+              path="/profile"
+              element={
+                <PrivateRoute>
+                  <Profile />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/pets/create"
+              element={
+                <PrivateRoute>
+                  <AddPet />
+                </PrivateRoute>
+              }
+            />
           </Routes>
         </Container>
         <Footer />
