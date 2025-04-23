@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Frontend desenvolvido em sala de aula
 ## Docker
 - Para buildar a imagem da aplicação
 ### `docker build -t project_frontend:v1_alpine .`
@@ -6,11 +6,13 @@
 - Para rodar a aplicação no docker
 ### `docker run -p 3000:3000 project_frontend`
 
-## Available Scripts
+## Como rodar o projeto
 
-In the project directory, you can run:
+Clone o repositório, e execute no terminal:
+### `npm install`
+
+Em seguida rode:
 
 ### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Abra-o em [http://localhost:3000](http://localhost:3000) para visualizar no navegador.
