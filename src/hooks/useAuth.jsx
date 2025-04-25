@@ -68,7 +68,7 @@ export default function useAuth() {
         let messageType = "success";
 
         setAuthenticated(false);
-        localStorage.clear("tokne");
+        localStorage.clear("token");
 
         api.defaults.headers.Authorization = undefined;
         navigate("/login");
