@@ -10,12 +10,13 @@ export default function useAuth() {
     const { setFlashMessage } = useFlashMessage();
 
     useEffect(() => {
-        const token = localStorage.getItem("token");
-        console.log(token);
-        if (token) {
-            api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
+        api.post("/users/me").then((response) => {
             setAuthenticated(true);
-        }
+            navigate("/");
+        }).catch((error) => {
+            setAuthenticated(false);
+            navigate("/login");
+        })
     }, []);
 
     // LOGIN DO USUÁRIO
@@ -67,10 +68,18 @@ export default function useAuth() {
         let messageText = "Logout efetuado com sucesso!";
         let messageType = "success";
 
-        setAuthenticated(false);
-        localStorage.clear("token");
-
-        api.defaults.headers.Authorization = undefined;
+        try {
+            await api.post("/users/logout").then((response) => {
+                setAuthenticated(false);
+            })
+        } catch (error) {
+            console.log("Erro ao fazer logout", error);
+            messageText = "Erro ao efetuar logout";
+            messageType = "error";
+        } finally {
+            setFlashMessage(messageText, messageType);
+            navigate("/");
+        }
         navigate("/login");
         setFlashMessage(messageText, messageType);
 
