@@ -52,6 +52,8 @@
     height: 200px;
     background-size: cover;
     background-position: center;
+    object-fit: cover;
+    object-position: center;
 }
 
 .pet_card_body {
