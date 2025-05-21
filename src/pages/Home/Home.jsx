@@ -35,14 +35,13 @@ const Home = () => {
               <div
                 className={styles.pet_card_image}
                 style={{
-                  backgroundImage: `url(${
-                    process.env.REACT_APP_API
-                  }/images/pets/${pet.images?.[0] || "default.jpg"})`,
+                  backgroundImage: `url(${process.env.REACT_APP_API
+                    }/images/pets/${pet.images?.[0] || "default.jpg"})`,
                 }}
               ></div>
               <div className={styles.pet_card_body}>
                 <h3>{pet.name || "Nome não informado :("}</h3>
-                <Link to={`/pet/${pet._id}`} className={styles.details_button}>
+                <Link to={`/pets/details`} state={{ pet }} className={styles.details_button}>
                   Ver mais
                 </Link>
               </div>

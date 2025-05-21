@@ -2,7 +2,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import Login from "./pages/Auth/Login/Login";
 import Register from "./pages/Auth/Register/Register";
-import AddPet from "./pages/Pet/AddPet";
+import AddPet from "./pages/Pet/Create/AddPet";
+import Details from "./pages/Pet/Details/Details";
 import Profile from "./pages/Profile/Profile";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -38,6 +39,8 @@ function AppRoutes() {
                 </PrivateRoute>
               }
             />
+
+            <Route path="/pets/details" element={<PrivateRoute><Details /></PrivateRoute>} />
           </Routes>
         </Container>
         <Footer />

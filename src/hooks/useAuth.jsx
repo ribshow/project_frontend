@@ -11,7 +11,7 @@ export default function useAuth() {
 
     useEffect(() => {
         const token = localStorage.getItem("token");
-        console.log(token);
+        //console.log(token);
         if (token) {
             api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
             setAuthenticated(true);
@@ -25,7 +25,7 @@ export default function useAuth() {
 
         try {
             const response = await api.post("/users/login", user);
-            console.log(response);
+            //console.log(response);
             await authUser(response.data);
 
 
