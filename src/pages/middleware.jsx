@@ -3,8 +3,12 @@ import { Context } from "../context/Context";
 import { useContext } from "react";
 
 const PrivateRoute = ({ children }) => {
-  const { authenticated } = useContext(Context);
+  const { authenticated, loading } = useContext(Context);
   console.log(authenticated);
+
+  if (loading) {
+    return <p>Carregando...</p>;
+  }
 
   return authenticated ? children : <Navigate to="/login" />;
 };
