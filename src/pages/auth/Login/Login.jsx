@@ -1,7 +1,7 @@
 import Input from "../../../components/Form/Input";
 import styles from "../../../components/Form/Form.module.css";
 import sInput from "../../../components/Form/Input.module.css";
-import sRegister from "../../Auth/Register/Register.module.css"
+import sRegister from "../../auth/Register/Register.module.css"
 import { useState, useContext } from "react";
 import { Context } from "../../../context/Context";
 

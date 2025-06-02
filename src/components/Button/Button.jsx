@@ -1,9 +1,9 @@
 import styles from "./Button.module.css";
 
-const Button = ({ children, type, handleOnChange }) => {
+const Button = ({ children, type, handleOnChange, onClick }) => {
     return (
         <div>
-            <button className={styles.btn} type={type} onSubmit={handleOnChange}>{children}</button>
+            <button className={styles.btn} onClick={onClick} type={type} onSubmit={handleOnChange}>{children}</button>
         </div>
     )
 }

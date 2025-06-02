@@ -21,3 +21,8 @@
 .container button {
     margin-top: 8px;
 }
+
+.container img {
+    margin: 10px;
+    width: 400px;
+}
