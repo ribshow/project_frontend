@@ -13,6 +13,26 @@ export default function useAuth() {
     const token = localStorage.getItem("token");
     //console.log(token);
     if (token) {
+      try {
+        const parsedToken = JSON.parse(token);
+        const payloadBase64 = parsedToken.split(" ")[1];
+        const payload = JSON.parse(atob(payloadBase64));
+        const isExpired = payload.exp * 1000 < Date.now();
+
+        if (isExpired) {
+          localStorage.removeItem("token");
+          setAuthenticated(false);
+          api.defaults.headers.Authorization = undefined;
+        } else {
+          api.defaults.headers.Authorization = `Bearer ${parsedToken}`;
+          setAuthenticated(true);
+        }
+      } catch (error) {
+        console.error("Erro ao validar token", error);
+        localStorage.removeItem("token");
+        setAuthenticated(false);
+      }
+
       api.defaults.headers.Authorization = `Bearer ${JSON.parse(token)}`;
       setAuthenticated(true);
     }
