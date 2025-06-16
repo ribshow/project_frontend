@@ -9,9 +9,11 @@ import {
   PDFDownloadLink,
 } from "@react-pdf/renderer";
 import stylesCSS from "./style.module.css";
-import Button from "../../../components/Button/Button";
+//import Button from "../../../components/Button/Button";
+import styleButton from "../../../components/Button/Button.module.css";
 import { useState, useEffect } from "react";
 import { convertImageToBase64 } from "../../../utils/convertImageBase64";
+import { Link } from "react-router-dom";
 
 const styles = StyleSheet.create({
   page: {
@@ -212,7 +214,8 @@ const Details = () => {
           src={`${process.env.REACT_APP_API}/images/pets/${pet?.images[0]}`}
           alt=""
         />
-        <Button>Entrar em contato</Button>
+
+        <Link className={styleButton.btn} to="/pets/contact" alt="contato">Entrar em Contato</Link>
 
         {imageBase64 && (
           <PDFDownloadLink

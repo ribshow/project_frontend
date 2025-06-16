@@ -6,6 +6,7 @@
     transition: all 200ms;
     color: #8A2BE2;
     background-color: white;
+    text-decoration: none;
 }
 
 .btn:hover {
